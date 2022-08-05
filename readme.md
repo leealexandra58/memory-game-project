@@ -24,3 +24,9 @@ Things to code
             Font
             Background 
             Spacings
+    game funtions
+        when two cards are flipped
+            if match
+                remove cards from field
+            else
+                flip cards back over
