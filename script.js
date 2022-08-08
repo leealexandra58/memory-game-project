@@ -11,8 +11,7 @@ const findMostCommon = function (array){
     return totals;
 };
 
-document.getElementById("numberCards").addEventListener("change", (event) =>{
-    event.preventDefault();
+const shuffle = function(){
     let numberOfCards = document.getElementById("numberCards").value;
     let cardArray =[];
     while(cardArray.length < numberOfCards){
@@ -27,7 +26,18 @@ document.getElementById("numberCards").addEventListener("change", (event) =>{
         let newDiv = document.createElement("div");
         newDiv.classList.add("card");
         newDiv.innerText = cardArray[i];
-        console.log(newDiv);
         document.getElementById("cards").appendChild(newDiv);
     }
+};
+
+const clearBoard = function (){
+    while(document.getElementById("cards").hasChildNodes()){
+        document.getElementById("cards").removeChild(document.getElementById("cards").firstChild);
+    }
+}
+
+document.getElementById("numberCards").addEventListener("change", (event) =>{
+    event.preventDefault();
+    clearBoard();
+    shuffle();
 });
