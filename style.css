@@ -1,0 +1,81 @@
+.back-face, .card {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.card {
+    border: black 2px solid;
+    margin: 1em;
+    background-color: yellow;
+}
+
+.card-container, .button-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.back-face {
+    background-color: red;
+    display: none;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Rubik Marker Hatch', cursive;
+    color: rgb(51, 176, 145);
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    z-index: 5;
+    background: linear-gradient(#6dc0eaf1, #6de1c0);
+    width: 500px;
+    max-width: 80%;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+    color: whitesmoke;
+    font-family: 'Rubik Burned', cursive;
+}
+
+.modal-header {
+    text-decoration: underline double 1px;
+    font-size: 25px;
+}
+
+.modal-body {
+    border-bottom:  black 1px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.buttons, #play-again {
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#play-again {
+    background-color:#f5f599f1;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px;
+    color: gray;
+    font-weight: bold;
+    width: 130px;
+    font-family: 'Poppins', sans-serif;
+}
