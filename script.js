@@ -24,15 +24,22 @@ const shuffle = function(){
     }
     for(i = 0; i < numberOfCards; i++){
         let newDiv = document.createElement("div");
+        let frontface = document.createElement("div");
+        let backface = document.createElement("div");
+        frontface.classList.add("front-face");
+        backface.classList.add("back-face");
+        frontface.innerText = "?";
+        backface.innerText = `${cardArray[i]}`;
         newDiv.classList.add("card");
-        newDiv.innerText = cardArray[i];
-        document.getElementById("cards").appendChild(newDiv);
+        newDiv.appendChild(frontface);
+        newDiv.appendChild(backface);
+        document.getElementById("card-container").appendChild(newDiv);
     }
 };
 
 const clearBoard = function (){
-    while(document.getElementById("cards").hasChildNodes()){
-        document.getElementById("cards").removeChild(document.getElementById("cards").firstChild);
+    while(document.getElementById("card-container").hasChildNodes()){
+        document.getElementById("card-container").removeChild(document.getElementById("card-container").firstChild);
     }
 }
 
