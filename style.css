@@ -5,7 +5,7 @@
     
 }
 
-#cards{
+#card-container{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
