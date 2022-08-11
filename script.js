@@ -4,4 +4,8 @@ document.getElementById("reset").addEventListener("click", (event) => {
     clearBoard();
     shuffle();
     clearInterval(timer);
+    timeElapsedHour = 0;
+    timeElapsedMin = 0;
+    timeElapsedsecond = 0;
+    document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
 })
