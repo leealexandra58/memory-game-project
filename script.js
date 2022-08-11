@@ -1,4 +1,16 @@
 
+
+document.getElementById("reset").addEventListener("click", (event) => {
+    event.preventDefault();
+    clearBoard();
+    shuffle();
+    clearInterval(timer);
+    timeElapsedHour = 0;
+    timeElapsedMin = 0;
+    timeElapsedsecond = 0;
+    document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+})
+
 const findMostCommon = function (array){
     let totals = {};
     for(const item of array){
@@ -48,3 +60,4 @@ document.getElementById("numberCards").addEventListener("change", (event) =>{
     clearBoard();
     shuffle();
 });
+
