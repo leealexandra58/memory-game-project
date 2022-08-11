@@ -1,0 +1,14 @@
+
+.card{
+    border:  2px black solid;
+    height: 100px;
+    width: 50px;
+    
+}
+
+#card-container{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
