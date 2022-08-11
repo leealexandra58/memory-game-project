@@ -1,3 +1,4 @@
+
 .card{
     border:  2px black solid;
     height: 100px;
@@ -10,3 +11,4 @@
     flex-wrap: wrap;
     text-align: center;
 }
+

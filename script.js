@@ -1,5 +1,29 @@
+//start button
+let timer;
 
 
+document.getElementById("start").addEventListener("click", (event) => {
+    event.preventDefault();
+   let timeElapsedsecond = 00;
+   let timeElapsedMin = 00;
+   let timeElapsedHour = 00;
+   timer = setInterval(()=> {
+        timeElapsedsecond ++;
+        
+        if(timeElapsedsecond === 60){
+            timeElapsedsecond = 0;
+            timeElapsedMin ++;
+            if(timeElapsedMin === 60){
+                timeElapsedMin = 0;
+                timeElapsedHour ++;
+            }
+        }
+        document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+   }, 1000);
+});
+
+
+//reset button
 document.getElementById("reset").addEventListener("click", (event) => {
     event.preventDefault();
     clearBoard();
@@ -11,6 +35,7 @@ document.getElementById("reset").addEventListener("click", (event) => {
     document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
 })
 
+//shuffling mechanics
 const findMostCommon = function (array){
     let totals = {};
     for(const item of array){
@@ -49,15 +74,18 @@ const shuffle = function(){
     }
 };
 
+//clear board function
 const clearBoard = function (){
     while(document.getElementById("card-container").hasChildNodes()){
         document.getElementById("card-container").removeChild(document.getElementById("card-container").firstChild);
     }
 }
 
+//adding cards
 document.getElementById("numberCards").addEventListener("change", (event) =>{
     event.preventDefault();
     clearBoard();
     shuffle();
 });
+
 
