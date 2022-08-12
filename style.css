@@ -1,14 +1,143 @@
-
-.card{
-    border:  2px black solid;
-    height: 100px;
-    width: 50px;
-    
+/* .card {
+  border: 2px black solid;
+  height: 100px;
+  width: 50px;
 }
 
-#card-container{
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
 }
+
+h1 {
+  border-style: none;
+  background: #0ca789;
+  text-align: center;
+}
+
+body {
+  background: #f24726;
+}
+
+#card-container {
+  width: 8em;
+  height: 8em;
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transform: 0.5s;
+  border-style: solid;
+  justify-content: center;
+}
+
+.cards:active {
+  transform: scale(0.97);
+  transition: transform 0.3s;
+}
+
+.cards.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  
+  background: #414bb2;
+  height: 25px;
+  backface-visibility: hidden;
+}
+
+.back-face {
+  transform: rotateY(180deg);
+}
+
+.front-face {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  border: 2px black solid;
+  height: 100px;
+  width: 50px;
+}
+
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+} */
+
+/* || flex */
+.flex,
+.flex-col {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+#card-container {
+  --gap: 20px;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  padding: 15px;
+}
+/* 4 8 16 32*/
+
+.card {
+  width: var(--card-width);
+  width: calc(var(--card-width) - var(--gap));
+  border: 1px solid;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  
+}
+
+/* is our number */
+[show-number=false] .back-face,
+.back-face {
+  display: none;
+}
+
+[show-number=false] .front-face,
+.front-face {
+  display: inherit;
+}
+
+/* question mark */
+
+.card[show-number="true"] > .back-face {
+  display: inherit;
+  transform: rotateY(180deg);
+}
+
+.card[show-number="true"] > .front-face {
+  display: none;
+}
+
+.matched {
+  opacity: 10%;
+  color: transparent;
+  background-color: rgb(83, 83, 136);
+ 
+}
+
+.card[show-number=true] {
+    transform: rotateY(180deg);
+    transition: all 300ms
+}
+
+.card, .back-face,.front-face {
+    transition: transform 2s;
+}
+
 
