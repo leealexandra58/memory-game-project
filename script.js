@@ -26,6 +26,8 @@ document.getElementById("start").addEventListener("click", (event) => {
 //reset button
 document.getElementById("reset").addEventListener("click", (event) => {
     event.preventDefault();
+    //the following comment is to remove the evetn listener that allows for card flipping, needs to be finished by replacing test with a variable on that defines the function for the event listener for card flipping
+    // document.getElementById("card-container").removeEventListener("click", test );
     clearBoard();
     shuffle();
     clearInterval(timer);
