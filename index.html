@@ -16,38 +16,22 @@
         <div class="timer" id="timer"></div>
     </div>
     
-    <div class="card-container">
+    <div class="card-container" id="card-container">
         <div class="card" name="one">
-            <div class="front-face">
-                <h1>?</h1>
-            </div>
-            <div class="back-face" >
-                <h1>1</h1>
-            </div>
+            <div class="front-face">?</div>
+            <div class="back-face">1</div>
         </div>
         <div class="card" name="one">
-            <div class="front-face">
-                <h1>?</h1>
-            </div>
-            <div class="back-face">
-                <h1>1</h1>
-            </div>
+            <div class="front-face">?</div>
+            <div class="back-face">1</div>
         </div>
         <div class="card" name="two">
-            <div class="front-face">
-                <h1>?</h1>
-            </div>
-            <div class="back-face">
-                <h1>2</h1>
-            </div>
+            <div class="front-face">?</div>
+            <div class="back-face">2</div>
         </div>
         <div class="card" name="two">
-            <div class="front-face">
-                <h1>?</h1>
-            </div>
-            <div class="back-face">
-                <h1>2</h1>
-            </div>
+            <div class="front-face">?</div>
+            <div class="back-face">2</div>
         </div>
     </div>
     
@@ -58,15 +42,17 @@
 </div>
 
     <div class="modal" id="modal">
-        <div class="modal-header">
-        <!--add close button?--> 
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+
             <h2>CONGRATULATIONS</h2>
+            <p>You win! Would you like to play again?</p><!--add time?-->
+            <button id="play-again" class="btn play-again">PLAY AGAIN</button>
+            
         </div>
-        <div class="modal-body">You win! Would you like to play again?</div> <!--add time?-->
-        <br> 
-        <button id="play-again">PLAY AGAIN</button>
     </div>
-    <!--<div id="overlay"></div>-->
+    
     <script src="script.js"></script>
 </body>
 </html> 

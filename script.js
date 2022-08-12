@@ -1,50 +1,28 @@
-/*let resetButton = document.getElementById('resetButton');
-
-resetButton.addEventListener('click', resetGameFunction);
-
-function resetGameFunction() {
-
-}*/
-
-const cards = document.querySelectorAll('.card');
-
-cards.forEach((card) => {
-    card.addEventListener("click", () => {
-        card.classList.add("flipped");
-  
-        const flippedCards = document.querySelectorAll(".flipped");
-  
-        if (flippedCards.length === 2) {
-          if (flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
-              flippedCards.forEach((card) => {
-                  card.classList.remove("flipped");
-                  card.classList.add("matched");
-                  //card disappear function
-              });
-          } else {
-              card.classList.remove("flipped");
-              //turn back over function
-          }
-      }
-    });
-});
 
 
-const matchedCards = document.querySelectorAll(".matched");
-const modal = document.getElementById('modal');
-
-if (matchedCards.length === 16) {
-    function showWinScreen() {
-        modal.style.display = "flex";
-    }
-    return showWinScreen;
+function showWinScreen() {
+    const modalClose = document.querySelector(".close");
+    modal.style.display = "flex";
+    
+    modalClose.onclick = function () { 
+        modal.style.display = "none";
+    };
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
 }
 
-const playAgain = document.getElementById('play-again');
+function toWinGame() {
+    if (matched.length === 16) {
+        showWinScreen()
+        //stop timer
+    }
+}
 
-playAgain.addEventListener('click', () => {
-    //same function as reset button but add on hiding modal
-    //showModal.style.display = "none";
+playAgain.addEventListener('click', function() {
+    modal.style.display = "none";
+    //reset function
 });
-
-//When the user clicks anywhere outside of the modal, close it??
