@@ -143,7 +143,7 @@ function flipCardClickEvent(event) {
       secondCard.querySelector(".back-face").textContent;
 
     if (comparisonResult == true) {
-      // the cards values are the same
+      // if the cards values are the same
       // remove the cards/make them invisible
       firstCard.classList.add("matched");
       secondCard.classList.add("matched");
@@ -151,8 +151,6 @@ function flipCardClickEvent(event) {
 
       // actualMatchedPairs = 5
       //actualMatchedPairs = actualMatchedPairs + 1
-      // actualMatchedPairs = 5 + 1
-      // actualMatchedPairs= 6
       actualMatchedPairs += 1;
      
     } else if (comparisonResult == false) {
@@ -162,7 +160,7 @@ function flipCardClickEvent(event) {
         firstCard.setAttribute("show-number", "false");
         secondCard.setAttribute("show-number", "false");
       }, 2_000);
-      
+
       lastTwoFlippedArray = [];
     }
   }

@@ -1,80 +1,7 @@
-/* .card {
-  border: 2px black solid;
-  height: 100px;
-  width: 50px;
-}
 
-#card-container {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-}
+/* added flex class to class-container */
+/* created grid layout using columns */
 
-h1 {
-  border-style: none;
-  background: #0ca789;
-  text-align: center;
-}
-
-body {
-  background: #f24726;
-}
-
-#card-container {
-  width: 8em;
-  height: 8em;
-  margin: 5px;
-  position: relative;
-  transform: scale(1);
-  transform-style: preserve-3d;
-  transform: 0.5s;
-  border-style: solid;
-  justify-content: center;
-}
-
-.cards:active {
-  transform: scale(0.97);
-  transition: transform 0.3s;
-}
-
-.cards.flip {
-  transform: rotateY(180deg);
-}
-
-.front-face,
-.back-face {
-  
-  background: #414bb2;
-  height: 25px;
-  backface-visibility: hidden;
-}
-
-.back-face {
-  transform: rotateY(180deg);
-}
-
-.front-face {
-  width: 100%;
-  height: 100%;
-}
-
-.hidden {
-  display: none;
-}
-
-.card {
-  border: 2px black solid;
-  height: 100px;
-  width: 50px;
-}
-
-#card-container {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-} */
-
-/* || flex */
 .flex,
 .flex-col {
   display: flex;
@@ -99,6 +26,8 @@ body {
   height: 120px;
   display: grid;
   place-items: center;
+  font-size: 70px;
+  background-color: #414BB2;
   
 }
 
@@ -118,12 +47,15 @@ body {
 .card[show-number="true"] > .back-face {
   display: inherit;
   transform: rotateY(180deg);
+  
 }
 
 .card[show-number="true"] > .front-face {
   display: none;
 }
 
+
+/* I greyed out the cards if they match, if want to change to blank, opacity 0% */
 .matched {
   opacity: 10%;
   color: transparent;
@@ -140,4 +72,21 @@ body {
     transition: transform 2s;
 }
 
+h1 {
+    border-style: none;
+    background: #0ca789;
+    text-align: center;
+  }
 
+  body {
+    background-color: #F24726;
+    font-family: 'Bangers', cursive;
+    font-size: 20px;
+  }
+
+/* start and reset button still needs styling */
+
+
+
+  /* miro link
+  https://miro.com/app/board/uXjVOhaASlI=/ */
