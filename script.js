@@ -79,13 +79,13 @@ function toWinGame() {
  /* event listener when cards are clicked to be flipped. 
     create a function to add the class "flip" to the card
         
-        add *addToOpened();*
+        add *addToClickedCards();*
 
     create the addToOpened function to push the flipped cards to open[]
 
-    function addToOpened() {
+    function addToClickedCards() {
         if () {
-            opened.push();
+            clickedCards.push();
         }
     
     //add in the function compareCards() from above.
