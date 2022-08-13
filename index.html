@@ -5,20 +5,105 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Memory Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Iso&family=Silkscreen&display=swap" rel="stylesheet">
+    <title>MEMORY MASTER</title>
 </head>
 <body>
-    <h1>Memory Master</h1>
-    <div id="timer"></div>
-    <div id="cards">
-        <div class="cards">1</div>
-        <div class="cards">1</div>
-        <div class="cards">2</div>
-        <div class="cards">2</div>
+    <div class="header-container">
+        <h1>Memory Master</h1>
+        <div class="timer" id="timer">TIMER: 00 min: 00 sec</div>
     </div>
-    <input type="submit" id="start" value="START"/>
-    <input type="submit" id="reset" value="RESET"/>
+
+    <section class="game-board">
+
+            <div class="card" name="bear">
+                <img src="./images/bear.jpg" class="front" alt="bear" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="bear">
+                <img src="./images/bear.jpg" class="front" alt="bear" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="elephant">
+                <img src="./images/elephant.png" class="front" alt="elephant" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="elephant">
+                <img src="./images/elephant.png" class="front" alt="elephant" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="lion">
+                <img src="./images/lion.jpg" class="front" alt="lion" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="lion">
+                <img src="./images/lion.jpg" class="front" alt="lion" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="penguin">
+                <img src="./images/penguin.jpg" class="front" alt="penguin" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="penguin">
+                <img src="./images/penguin.jpg" class="front" alt="penguin" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="pig">
+                <img src="./images/pig.jpg" class="front" alt="pig" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="pig">
+                <img src="./images/pig.jpg" class="front" alt="pig" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="rhino">
+                <img src="./images/rhino.jpg" class="front" alt="rhino" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="rhino">
+                <img src="./images/rhino.jpg" class="front" alt="rhino" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="tiger">
+                <img src="./images/tiger.jpg" class="front" alt="tiger" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="tiger">
+                <img src="./images/tiger.jpg" class="front" alt="tiger" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="zebra">
+                <img src="./images/zebra.jpg" class="front" alt="zebra" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+
+            <div class="card" name="zebra">
+                <img src="./images/zebra.jpg" class="front" alt="zebra" />
+                <img src="./images/design1.png" class="back" alt="card-design" />
+            </div>
+    </section>
     
+    <div class ="button-container">
+        <button class="buttons" id="start-button">START</button>
+        <button class="buttons" id="reset-button">RESET</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

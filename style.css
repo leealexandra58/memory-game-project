@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(-45deg, #f6f6f4, #677681, #316578, #090909);
+	background-size: 400% 400%;
+	animation: gradient 20s ease infinite;
+}
+
+.header-container {
+    color: white;
+}
+
+h1 {
+    font-family: 'Silkscreen', cursive;
+    font-size: 80px;
+}
+
+
+.timer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: rgb(199, 195, 195);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.game-board {
+    width: 650px;
+    height: 650px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin: 20px;
+    padding: 10px 20px 20px 10px;
+    box-shadow: 0 0 10px;
+    border-radius: 5px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    background-color: white;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons {
+    background-color:#26c099f1;
+    border: 0;
+    border-radius: 5px;
+    font-size: 25px;
+    padding: 15px;
+    font-weight: bold;
+    width: 50%;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    letter-spacing: 2px;
+    transition: 0.4s;
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+#start-button {
+    margin-right: 50px;
+}
+
+#start-button:hover {
+    transform: rotateY(20deg);
+}
+
+#start-button::after {
+    width: 30px;
+    height: 100%;
+    left: -30;
+    top: 0;
+    transform-origin: 100% 0;
+    transform: rotateY(-90deg);
+}
+
+#reset-button:hover {
+    transform: rotateY(-20deg);
+}
+
+#reset-button::after {
+    width: 30px;
+    height: 100%;
+    left: 100%;
+    top: 0;
+    transform-origin: 0 0;
+    transform: rotateY(90deg);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
