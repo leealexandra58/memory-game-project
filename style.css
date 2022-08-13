@@ -88,7 +88,7 @@ h1 {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     color: white;
     letter-spacing: 2px;
-    transition: 0.4s;
+    transition: 0.2s;
     transform-style: preserve-3d;
     perspective: 800px;
 }
@@ -97,31 +97,19 @@ h1 {
     margin-right: 50px;
 }
 
-#start-button:hover {
-    transform: rotateY(20deg);
+.buttons:hover {
+    transform: rotateY(-30deg);
 }
 
-#start-button::after {
+.buttons::after {
     width: 30px;
     height: 100%;
     left: -30;
     top: 0;
     transform-origin: 100% 0;
-    transform: rotateY(-90deg);
+    transform: rotateY(80deg);
 }
 
-#reset-button:hover {
-    transform: rotateY(-20deg);
-}
-
-#reset-button::after {
-    width: 30px;
-    height: 100%;
-    left: 100%;
-    top: 0;
-    transform-origin: 0 0;
-    transform: rotateY(90deg);
-}
 
 @keyframes gradient {
 	0% {
