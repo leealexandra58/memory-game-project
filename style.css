@@ -1,3 +1,4 @@
+
 .modal {
     display: flex;
     justify-content: center;
@@ -58,3 +59,96 @@ p {
     cursor: pointer;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
+
+/* added flex class to class-container */
+/* created grid layout using columns */
+
+.flex,
+.flex-col {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+#card-container {
+  --gap: 20px;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  padding: 15px;
+}
+/* 4 8 16 32*/
+
+.card {
+  width: var(--card-width);
+  width: calc(var(--card-width) - var(--gap));
+  border: 1px solid;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  font-size: 70px;
+  background-color: #414BB2;
+  
+}
+
+/* is our number */
+[show-number=false] .back-face,
+.back-face {
+  display: none;
+}
+
+[show-number=false] .front-face,
+.front-face {
+  display: inherit;
+}
+
+/* question mark */
+
+.card[show-number="true"] > .back-face {
+  display: inherit;
+  transform: rotateY(180deg);
+  
+}
+
+.card[show-number="true"] > .front-face {
+  display: none;
+}
+
+
+/* I greyed out the cards if they match, if want to change to blank, opacity 0% */
+.matched {
+  opacity: 10%;
+  color: transparent;
+  background-color: rgb(83, 83, 136);
+ 
+}
+
+.card[show-number=true] {
+    transform: rotateY(180deg);
+    transition: all 300ms
+}
+
+.card, .back-face,.front-face {
+    transition: transform 2s;
+}
+
+h1 {
+    border-style: none;
+    background: #0ca789;
+    text-align: center;
+  }
+
+  body {
+    background-color: #F24726;
+    font-family: 'Bangers', cursive;
+    font-size: 20px;
+  }
+
+/* start and reset button still needs styling */
+
+
+
+  /* miro link
+  https://miro.com/app/board/uXjVOhaASlI=/ */
+
