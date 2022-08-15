@@ -1,280 +1,318 @@
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box
-  }
-  
-  /* edited version */
-  .modal {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box
+}
 
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 5;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-  }
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
 
-  
-  /* edited version for all components for modal */
-  .modal-content {
-    padding-bottom: 50px;
-    padding-right: 15px;
-    width: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(#d5d9dc, #5b5d5ef1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  h2 {
-    font-family: 'Silkscreen', cursive;
-    text-decoration: underline double 1px;
-    padding-left: 30px;
-    font-size: 75px;
-    letter-spacing: 1.5px;
-  }
-  
-  p {
-    font-size: 30px;
-    padding-bottom: 25px;
-  }
-  
-  .close {
-    align-self: flex-end;
-    font-size: 50px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  label {
-    font-size: 25px;
-    padding-bottom: 10px;
-  }
-  
-  .timer {
-    font-size: 25px;
-    font-weight: bold;
-    border: solid white 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    padding: 5px;
-    width: 150px;
-  }
-  
-  /* added flex class to class-container */
-  /* created grid layout using columns */
-  
-  .flex,
-  .flex-col {
+.modal-content {
+  padding-bottom: 50px;
+  padding-right: 15px;
+  width: auto; 
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(#d5d9dc, #5b5d5ef1);
   display: flex;
-  }
-  
-  .flex-col {
   flex-direction: column;
-  }
-  
-  
-  #play-again {
-    background-color:#f8f191f1;
-    border: 0;
-    border-radius: 5px;
-    font-size: 20px;
-    padding: 15px;
-    font-weight: bold;
-    width: 20%;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* added flex class to class-container */
-  /* created grid layout using columns */
-  
-  
-  #card-container {
-    --gap: 20px;
-    gap: var(--gap);
-    flex-wrap: wrap;
-    padding: 15px;
-  
-    justify-content: center;
-    align-items: center;
+  align-items: center;
+}
 
-  }
+h2 {
+  font-family: 'Silkscreen', cursive;
+  text-decoration: underline double 1px;
+  padding-left: 15px;
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 15px;
+  padding: 25px 0px;
+}
+
+.close {
+  align-self: flex-end;
+  font-size: 35px;
+  font-weight: bold;
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'Silkscreen', cursive;
+  font-size: 25px;
+  text-align: center;
+  text-decoration: underline double 1px;
+  margin: 7px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: white 1px solid;
+  padding: 0px 15px;
+  letter-spacing: 10px;
+}
+
+.timer {
+  font-size: 15px;
+  font-weight: bold;
+  border: solid white 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 2px 8px;
+  border-radius: 5px;
+  padding: 7px 0px;
+  width: 65px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+label {
+  font-size: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+/* added flex class to class-container */
+/* created grid layout using columns */
+
+.flex,
+.flex-col {
+display: flex;
+}
+
+.flex-col {
+flex-direction: column;
+}
 
 
+/* added flex class to class-container */
+/* created grid layout using columns */
 
-  
-  /* 4 8 16 32*/
-  
-  .card {
+#card-container {
+  --gap: 20px;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+}
 
+/* 4 8 16 32*/
+
+.card {
   width: var(--card-width);
   width: calc(var(--card-width) - var(--gap));
   border: 1px solid;
-  height: 120px;
+  height: 82px;
   display: grid;
   place-items: center;
-  font-size: 70px;
-
+  font-size: 35px;
   background-color: #26c0aef1;
   border-radius: 5px;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   cursor: pointer;
   }
   
-  /* is our number */
-  [show-number=false] .back-face,
-  .back-face {
-  display: none;
-  }
-  
-  [show-number=false] .front-face,
-  .front-face {
-  display: inherit;
-  }
-  
-  /* question mark */
-  
-  .card[show-number="true"] > .back-face {
-  display: inherit;
+
+/* is our number */
+[show-number=false] .back-face,
+.back-face {
+display: none;
+}
+
+[show-number=false] .front-face,
+.front-face {
+display: inherit;
+}
+
+/* question mark */
+
+.card[show-number="true"] > .back-face {
+display: inherit;
+transform: rotateY(180deg);
+
+}
+
+.card[show-number="true"] > .front-face {
+display: none;
+}
+
+/* I greyed out the cards if they match, if want to change to blank, opacity 0% */
+.matched {
+opacity: 10%;
+color: transparent;
+background-color: rgb(83, 83, 136);
+
+}
+
+.card[show-number=true] {
   transform: rotateY(180deg);
-  
-  }
-  
-  .card[show-number="true"] > .front-face {
+  transition: all 300ms
+}
+
+.card, .back-face,.front-face {
+  transition: transform 2s;
+}
+
+select {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  padding: 2px;
+  background: gray;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  border: white 1px solid;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* media query this */
+#option-thirty-two {
   display: none;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  background: linear-gradient(-45deg, white, #677d81, #316578, black);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.buttons {
+  background-color: transparent;
+  border: 0;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5px 0px;
+  font-weight: bold;
+  width: 100px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  color: white;
+  letter-spacing: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  border: white 1px solid;
+  transition: 0.2s;
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.buttons:hover {
+  transform: rotateY(-30deg);
+}
+
+.buttons::after {
+  width: 30px;
+  height: 100%;
+  left: -30;
+  top: 0;
+  transform-origin: 100% 0;
+  transform: rotateY(80deg);
+}
+
+#play-again{
+  width: 130px;
+  background: #316578;
+}
+
+/* added background animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+
+  .modal-content {
+    width: auto;
   }
-  
-  
-  /* I greyed out the cards if they match, if want to change to blank, opacity 0% */
-  .matched {
-  opacity: 10%;
-  color: transparent;
-  background-color: rgb(83, 83, 136);
-  
+
+  h2 {
+    padding-left: 25px;
+    font-size: 65px;
+    letter-spacing: 1.5px;
   }
-  
-  .card[show-number=true] {
-    transform: rotateY(180deg);
-    transition: all 300ms
-  }
-  
-  .card, .back-face,.front-face {
-    transition: transform 2s;
-  }
-  
-  /* h1 {
-    border-style: none;
-    background: #0ca789;
-    text-align: center;
-  } --> updated h1 below */
-  
-  
-  h1 {
-    font-family: 'Silkscreen', cursive;
-    font-size: 80px;
-    letter-spacing: 5px;
-    text-decoration: underline 1px;
-  }
-  
-  /* edited some here */
-  select {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    font-size: 20px;
-    padding: 5px 10px;
-    background: gray;
-    border-radius: 5px;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    border: 0;
-    cursor: pointer;
-  }
-  
-  body {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    color: white;
-    background: linear-gradient(-45deg, white, #677d81, #316578, black);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-  }
-  
-  /* added the styling below */
-  
-  
-  .buttons {
-    background-color: transparent;
-    border: 0;
-    border-radius: 5px;
+
+  p {
     font-size: 25px;
-    padding: 10px;
-    font-weight: bold;
-    width: 150px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    color: white;
-    letter-spacing: 2px;
-    transition: 0.2s;
-    transform-style: preserve-3d;
-    perspective: 800px;
+    padding-bottom: 25px;
   }
-  
-  .buttons:hover {
-    transform: rotateY(-30deg);
+
+  .close {
+    font-size: 50px;
+    font-weight: none;
+    padding: 0px;
   }
-  
-  .buttons::after {
-    width: 30px;
-    height: 100%;
-    left: -30;
-    top: 0;
-    transform-origin: 100% 0;
-    transform: rotateY(80deg);
+
+  label {
+    font-size: 20px;
   }
-  
-  .play-again-btn{
-    width: 25%;
-    background: #316578;
+
+  .timer {
+    font-size: 20px;
+    margin: 12px 0px 0px 7px;
+    width: 80px;
   }
-  
-  /* added background animation */
-  @keyframes gradient {
-      0% {
-          background-position: 0% 50%;
-      }
-      50% {
-          background-position: 100% 50%;
-      }
-      100% {
-          background-position: 0% 50%;
-      }
+
+  .card {
+    font-size: 25px;
+    height: 50px;
   }
-  
- 
 
+  h1 {
+    font-size: 35px;
+    letter-spacing: 20px;
+  }
 
+  select {
+    font-size: 17px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
 
+  #option-thirty-two {
+    display: block;
+  }
 
+  .buttons {
+    font-size: 18px;
+    width: 125px;
+    margin-bottom: 5px;
+  }
 
+  #play-again{
+      width: 160px;
+  }
 
-  /* miro link
-  https://miro.com/app/board/uXjVOhaASlI=/ */
+}
 
-
+/* miro link
+https://miro.com/app/board/uXjVOhaASlI=/ */
