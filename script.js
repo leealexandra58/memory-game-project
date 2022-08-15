@@ -178,6 +178,7 @@ function flipCardClickEvent(event) {
                 
               toWinGame();
               function showWinScreen() {
+                setTimeout(function() {
                 const modalClose = document.querySelector(".close");
                 modal.style.display = "flex";
                     
@@ -190,6 +191,7 @@ function flipCardClickEvent(event) {
                     modal.style.display = "none";
                   }
                 };
+              }, 2500);
               }
                 
               function toWinGame() {
