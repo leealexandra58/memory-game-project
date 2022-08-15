@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Rubik+Burned&family=Rubik+Marker+Hatch&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Iso&family=Silkscreen&display=swap" rel="stylesheet">
-
     <title>Memory Master</title>
 </head>
 <body>
 
     <div class="header-container">
         <h1>Memory Master</h1>
-
         <div class="timer" id="timer">0:0:0</div>
     </div>
 
@@ -42,7 +37,7 @@
         <option>4</option>
         <option>8</option>
         <option>16</option>
-        <option>32</option>
+        <option id="option-thirty-two">32</option> <!--added id for option 32 in order to be removed in mobile view-->
     </select>
    
    <div id="card-container" class="flex">
@@ -55,7 +50,6 @@
    
         <input type="submit" id="reset" class="buttons" value="RESET"/>
     </div>
-
     
     <script src="script.js"></script>
 </body>
