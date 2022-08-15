@@ -1,5 +1,13 @@
 
-.modal {
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+  }
+  
+  /* edited version */
+  .modal {
+
     display: none;
     justify-content: center;
     align-items: center;
@@ -10,42 +18,75 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-}
 
-.modal-content {
+
+  
+  /* edited version for all components for modal */
+  .modal-content {
     padding-bottom: 50px;
     padding-right: 15px;
-    width: 60%;
-    max-height: 75%;
+    width: auto;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(#6dc0eaf1, #6de1c0);
+    background: linear-gradient(#d5d9dc, #5b5d5ef1);
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-h2 {
-    font-family: 'Rubik Marker Hatch', cursive;
+  }
+  
+  h2 {
+    font-family: 'Silkscreen', cursive;
     text-decoration: underline double 1px;
     padding-left: 30px;
     font-size: 75px;
-    color: whitesmoke;
     letter-spacing: 1.5px;
-}
-
-p {
-    font-family: 'Poppins', sans-serif;
+  }
+  
+  p {
     font-size: 30px;
-    color: white;
     padding-bottom: 25px;
-}
-
-.close {
+  }
+  
+  .close {
     align-self: flex-end;
     font-size: 50px;
     cursor: pointer;
-}
+    font-weight: bold;
+  }
+  
+  label {
+    font-size: 25px;
+    padding-bottom: 10px;
+  }
+  
+  .timer {
+    font-size: 25px;
+    font-weight: bold;
+    border: solid white 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    width: 150px;
+  }
+  
+  /* added flex class to class-container */
+  /* created grid layout using columns */
+  
+  .flex,
+  .flex-col {
+  display: flex;
+  }
+  
+  .flex-col {
+  flex-direction: column;
+  }
+  
+  #card-container {
+
+
 
 #play-again {
     background-color:#f8f191f1;
@@ -63,24 +104,22 @@ p {
 /* added flex class to class-container */
 /* created grid layout using columns */
 
-.flex,
-.flex-col {
-  display: flex;
-}
 
-.flex-col {
-  flex-direction: column;
-}
 
-#card-container {
+
+
   --gap: 20px;
   gap: var(--gap);
   flex-wrap: wrap;
   padding: 15px;
-}
-/* 4 8 16 32*/
 
-.card {
+  justify-content: center;
+  align-items: center;
+  }
+  /* 4 8 16 32*/
+  
+  .card {
+
   width: var(--card-width);
   width: calc(var(--card-width) - var(--gap));
   border: 1px solid;
@@ -88,67 +127,154 @@ p {
   display: grid;
   place-items: center;
   font-size: 70px;
-  background-color: #414BB2;
+
+  background-color: #26c0aef1;
+  border-radius: 5px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  cursor: pointer;
+  }
   
-}
-
-/* is our number */
-[show-number=false] .back-face,
-.back-face {
+  /* is our number */
+  [show-number=false] .back-face,
+  .back-face {
   display: none;
-}
-
-[show-number=false] .front-face,
-.front-face {
+  }
+  
+  [show-number=false] .front-face,
+  .front-face {
   display: inherit;
-}
-
-/* question mark */
-
-.card[show-number="true"] > .back-face {
+  }
+  
+  /* question mark */
+  
+  .card[show-number="true"] > .back-face {
   display: inherit;
   transform: rotateY(180deg);
   
-}
-
-.card[show-number="true"] > .front-face {
+  }
+  
+  .card[show-number="true"] > .front-face {
   display: none;
-}
-
-
-/* I greyed out the cards if they match, if want to change to blank, opacity 0% */
-.matched {
+  }
+  
+  
+  /* I greyed out the cards if they match, if want to change to blank, opacity 0% */
+  .matched {
   opacity: 10%;
   color: transparent;
   background-color: rgb(83, 83, 136);
- 
-}
-
-.card[show-number=true] {
+  
+  }
+  
+  .card[show-number=true] {
     transform: rotateY(180deg);
     transition: all 300ms
-}
-
-.card, .back-face,.front-face {
+  }
+  
+  .card, .back-face,.front-face {
     transition: transform 2s;
-}
-
-h1 {
+  }
+  
+  /* h1 {
     border-style: none;
     background: #0ca789;
     text-align: center;
+  } --> updated h1 below */
+  
+  
+  h1 {
+    font-family: 'Silkscreen', cursive;
+    font-size: 80px;
+    letter-spacing: 5px;
+    text-decoration: underline 1px;
   }
-
-  body {
-    background-color: #F24726;
-    font-family: 'Bangers', cursive;
+  
+  /* edited some here */
+  select {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     font-size: 20px;
+    padding: 5px 10px;
+    background: gray;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
   }
+  
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    background: linear-gradient(-45deg, white, #677d81, #316578, black);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+  }
+  
+  /* added the styling below */
+  
+  
+  .buttons {
+    background-color: transparent;
+    border: 0;
+    border-radius: 5px;
+    font-size: 25px;
+    padding: 10px;
+    font-weight: bold;
+    width: 150px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    letter-spacing: 2px;
+    transition: 0.2s;
+    transform-style: preserve-3d;
+    perspective: 800px;
+  }
+  
+  .buttons:hover {
+    transform: rotateY(-30deg);
+  }
+  
+  .buttons::after {
+    width: 30px;
+    height: 100%;
+    left: -30;
+    top: 0;
+    transform-origin: 100% 0;
+    transform: rotateY(80deg);
+  }
+  
+  .play-again-btn{
+    width: 25%;
+    background: #316578;
+  }
+  
+  /* added background animation */
+  @keyframes gradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  
+ 
 
-/* start and reset button still needs styling */
+
+
 
 
 
   /* miro link
   https://miro.com/app/board/uXjVOhaASlI=/ */
+
 
