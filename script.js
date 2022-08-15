@@ -4,6 +4,9 @@ let lastTwoFlippedArray = [];
 let expectdMatchedPairs = 0;
 let actualMatchedPairs = 0;
 
+let start = 0;
+let unlock = 0;
+
 document.getElementById("start").addEventListener("click", (event) => {
 event.preventDefault();
 let timeElapsedsecond = 00;
@@ -24,23 +27,22 @@ timer = setInterval(() => {
     "timer"
   ).innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
 }, 1000);
+start ++;
 });
 
 //reset button
 document.getElementById("reset").addEventListener("click", (event) => {
 event.preventDefault();
-//the following comment is to remove the evetn listener that allows for card flipping, needs to be finished by replacing test with a variable on that defines the function for the event listener for card flipping
-// document.getElementById("card-container").removeEventListener("click", test );
-//start --;
 clearBoard();
 shuffle();
 clearInterval(timer);
 timeElapsedHour = 0;
 timeElapsedMin = 0;
 timeElapsedsecond = 0;
-document.getElementById(
-  "timer"
-).innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+if(start > 0){
+    start --; 
+  }
 });
 
 //shuffling mechanics
@@ -91,7 +93,6 @@ for (i = 0; i < numberOfCards; i++) {
   //attach click event lisiter to the newDiv(card)
   newDiv.addEventListener("click", flipCardClickEvent);
   document.getElementById("card-container").appendChild(newDiv);
-  console.log(cardArray);
 }
 };
 
@@ -99,17 +100,24 @@ for (i = 0; i < numberOfCards; i++) {
 //clear board function
 const clearBoard = function () {
 while (document.getElementById("card-container").hasChildNodes()) {
-  document
-    .getElementById("card-container")
-    .removeChild(document.getElementById("card-container").firstChild);
+  document.getElementById("card-container").removeChild(document.getElementById("card-container").firstChild);
 }
 };
 
 //adding cards
 document.getElementById("numberCards").addEventListener("change", (event) => {
+
 event.preventDefault();
 clearBoard();
 shuffle();
+clearInterval(timer);
+  timeElapsedHour = 0;
+  timeElapsedMin = 0;
+  timeElapsedsecond = 0;
+  document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+  if(start > 0){
+    start --;
+  }
 });
 
 function writeGridDetailToContainer(numberOfCards) {
@@ -124,7 +132,11 @@ cardsContainer.style.setProperty("--card-width", cardWidthPercentage + "%");
 }
 
 function flipCardClickEvent(event) {
-console.log("flipCardClickEvent", event.currentTarget);
+
+ if(start === 1){
+    if(lastTwoFlippedArray.length < 2){
+      if(event.target.classList.value === "card"){
+        event.target.classList.add("flipped");
 let isFlipped = event.currentTarget.getAttribute("show-number") == "true";
 event.currentTarget.setAttribute("show-number", isFlipped ? "false" : "true");
 
@@ -143,17 +155,59 @@ if (lastTwoFlippedArray.length == 2) {
   let comparisonResult =
     firstCard.querySelector(".back-face").textContent ==
     secondCard.querySelector(".back-face").textContent;
+   if (comparisonResult === true) {
+            // if the cards values are the same
+            // remove the cards/make them invisible
+            setTimeout(() => {
+              firstCard.classList.add("matched");
+              secondCard.classList.add("matched");
+              lastTwoFlippedArray = [];
+            }, 2000);
+  if (actualMatchedPairs === expectdMatchedPairs){
+              //show winning screen
+              const modal = document.getElementById("modal");
+              const playAgain = document.getElementById("play-again");
+              
+              toWinGame();
+              function showWinScreen() {
+                  const modalClose = document.querySelector(".close");
+                  modal.style.display = "flex";
+                  
+                  modalClose.onclick = function () { 
+                      modal.style.display = "none";
+                  };
+                  
+                  window.onclick = function(event) {
+                      if (event.target == modal) {
+                          modal.style.display = "none";
+                      }
+                  };
+              }
+              
+              function toWinGame() {
+                      showWinScreen()
+                      //stop timer
+                  }
+              if(unlock === 0){
+                  playAgain.addEventListener('click', function() {
+                  modal.style.display = "none";
+                  actualMatchedPairs = 0;
+                  lastTwoFlippedArray = [];
+                  clearBoard();
+                  shuffle();
+                  clearInterval(timer);
+                  timeElapsedHour = 0;
+                  timeElapsedMin = 0;
+                  timeElapsedsecond = 0;
+                  document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+                  unlock ++; 
+                  start --;
+              });
+            }
+            
+            }
 
-  if (comparisonResult == true) {
-    // if the cards values are the same
-    // remove the cards/make them invisible
-    firstCard.classList.add("matched");
-    secondCard.classList.add("matched");
-    lastTwoFlippedArray = [];
-
-    // actualMatchedPairs = 5
-    //actualMatchedPairs = actualMatchedPairs + 1
-    actualMatchedPairs += 1;
+   
 
   } else if (comparisonResult == false) {
     //the cards values are not the same
@@ -161,6 +215,10 @@ if (lastTwoFlippedArray.length == 2) {
     setTimeout(() => {
       firstCard.setAttribute("show-number", "false");
       secondCard.setAttribute("show-number", "false");
+        lastTwoFlippedArray = [];
+              while(document.querySelectorAll(".flipped").length > 0){
+                document.querySelector(".flipped").classList.remove("flipped");
+            }
     }, 1000);
 
     lastTwoFlippedArray = [];
@@ -207,3 +265,4 @@ playAgain.addEventListener('click', function() {
   "timer"
   ).innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
 });
+
