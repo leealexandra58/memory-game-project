@@ -1,38 +1,10 @@
-
-
-
-function showWinScreen() {
-    const modalClose = document.querySelector(".close");
-    modal.style.display = "flex";
-    
-    modalClose.onclick = function () { 
-        modal.style.display = "none";
-    };
-    
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    };
-}
-
-function toWinGame() {
-    if (matched.length === 16) {
-        showWinScreen()
-        //stop timer
-    }
-}
-
-playAgain.addEventListener('click', function() {
-    modal.style.display = "none";
-    //reset function
-});
-
 //start button
 let timer;
 let lastTwoFlippedArray = [];
 let expectdMatchedPairs = 0;
 let actualMatchedPairs = 0;
+let start = 0;
+let unlock = 0;
 
 document.getElementById("start").addEventListener("click", (event) => {
   event.preventDefault();
@@ -41,7 +13,7 @@ document.getElementById("start").addEventListener("click", (event) => {
   let timeElapsedHour = 00;
   timer = setInterval(() => {
     timeElapsedsecond++;
-
+  
     if (timeElapsedsecond === 60) {
       timeElapsedsecond = 0;
       timeElapsedMin++;
@@ -50,51 +22,49 @@ document.getElementById("start").addEventListener("click", (event) => {
         timeElapsedHour++;
       }
     }
-    document.getElementById(
-      "timer"
-    ).innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+    document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
   }, 1000);
+  start ++;
 });
+
 
 //reset button
 document.getElementById("reset").addEventListener("click", (event) => {
   event.preventDefault();
-  //the following comment is to remove the evetn listener that allows for card flipping, needs to be finished by replacing test with a variable on that defines the function for the event listener for card flipping
-  // document.getElementById("card-container").removeEventListener("click", test );
-  //start --;
   clearBoard();
   shuffle();
   clearInterval(timer);
   timeElapsedHour = 0;
   timeElapsedMin = 0;
   timeElapsedsecond = 0;
-  document.getElementById(
-    "timer"
-  ).innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
-});
-
-//shuffling mechanics
-const findMostCommon = function (array) {
-  let totals = {};
-  for (const item of array) {
-    if (totals[item]) {
-      totals[item] += 1;
-    } else {
-      totals[item] = 1;
-    }
+  document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+  if(start > 0){
+    start --; 
   }
-  return totals;
-};
+  });
 
-const shuffle = function () {
-  //get the number of cards from the drop down
-  let numberOfCards = document.getElementById("numberCards").value;
+  //shuffling mechanics
+  const findMostCommon = function (array) {
+    let totals = {};
+    for (const item of array) {
+      if (totals[item]) {
+        totals[item] += 1;
+      } else {
+        totals[item] = 1;
+      }
+    }
+    return totals;
+  };
+
+  const shuffle = function () {
+    //get the number of cards from the drop down
+    let numberOfCards = document.getElementById("numberCards").value;
 
   writeGridDetailToContainer(Number(numberOfCards));
   expectdMatchedPairs = Number(numberOfCards) / 2;
-
+  
   let cardArray = [];
-
+  
   // generate random numbers and add them to the cardArray till the size specified by
   // numberOfCard
   while (cardArray.length < numberOfCards) {
@@ -105,7 +75,7 @@ const shuffle = function () {
       cardArray.push(r);
     }
   }
-
+  
   // make cards and place number on it
   for (i = 0; i < numberOfCards; i++) {
     let newDiv = document.createElement("div");
@@ -128,8 +98,8 @@ const shuffle = function () {
 const clearBoard = function () {
   while (document.getElementById("card-container").hasChildNodes()) {
     document
-      .getElementById("card-container")
-      .removeChild(document.getElementById("card-container").firstChild);
+    .getElementById("card-container")
+    .removeChild(document.getElementById("card-container").firstChild);
   }
 };
 
@@ -138,64 +108,117 @@ document.getElementById("numberCards").addEventListener("change", (event) => {
   event.preventDefault();
   clearBoard();
   shuffle();
+  clearInterval(timer);
+  timeElapsedHour = 0;
+  timeElapsedMin = 0;
+  timeElapsedsecond = 0;
+  document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+  if(start > 0){
+    start --;
+  }
 });
 
 function writeGridDetailToContainer(numberOfCards) {
   //
   // number of columns by number cards
-
+  
   let cardsContainer = document.getElementById("card-container");
   //indicate the number of columns
   cardsContainer.style.setProperty("--columns", 1 / numberOfCards);
   let cardWidthPercentage = (1 / Math.sqrt(numberOfCards)) * 100;
   cardsContainer.style.setProperty("--card-width", cardWidthPercentage + "%");
 }
-
 function flipCardClickEvent(event) {
-  console.log("flipCardClickEvent", event.currentTarget);
-  let isFlipped = event.currentTarget.getAttribute("show-number") == "true";
-  event.currentTarget.setAttribute("show-number", isFlipped ? "false" : "true");
-
-  //if lastTwo is less than 1, add this cards value to it
-  if (lastTwoFlippedArray.length < 2) {
-    lastTwoFlippedArray.push(event.currentTarget); //add this card
-    console.log(lastTwoFlippedArray);
-  }
-
-  //if we have two cards compare them
-  if (lastTwoFlippedArray.length == 2) {
-    // let firstCard = lastTwoFlippedArray[0];
-    // let secondCard = lastTwoFlippedArray[1];
-    let [firstCard,secondCard] = lastTwoFlippedArray
-
-    let comparisonResult =
-      firstCard.querySelector(".back-face").textContent ==
-      secondCard.querySelector(".back-face").textContent;
-
-    if (comparisonResult == true) {
-      // if the cards values are the same
-      // remove the cards/make them invisible
-      firstCard.classList.add("matched");
-      secondCard.classList.add("matched");
-      lastTwoFlippedArray = [];
-
-      // actualMatchedPairs = 5
-      //actualMatchedPairs = actualMatchedPairs + 1
-      actualMatchedPairs += 1;
-     
-    } else if (comparisonResult == false) {
-      //the cards values are not the same
-      // hide both cards again
-      setTimeout(() => {
-        firstCard.setAttribute("show-number", "false");
-        secondCard.setAttribute("show-number", "false");
-      }, 2_000);
-
-      lastTwoFlippedArray = [];
+  if(start === 1){
+    if(lastTwoFlippedArray.length < 2){
+      if(event.target.classList.value === "card"){
+        event.target.classList.add("flipped");
+        let isFlipped = event.currentTarget.getAttribute("show-number") == "true";
+        event.currentTarget.setAttribute("show-number", isFlipped ? "false" : "true");
+      
+        //if lastTwo is less than 1, add this cards value to it
+        if (lastTwoFlippedArray.length < 2) {
+        lastTwoFlippedArray.push(event.currentTarget); //add this card
+        }
+      
+        //if we have two cards compare them
+        if (lastTwoFlippedArray.length == 2) {
+          // let firstCard = lastTwoFlippedArray[0];
+          // let secondCard = lastTwoFlippedArray[1];
+        let [firstCard,secondCard] = lastTwoFlippedArray
+        
+          let comparisonResult =
+          firstCard.querySelector(".back-face").textContent ==
+          secondCard.querySelector(".back-face").textContent;
+          if (comparisonResult === true) {
+            // if the cards values are the same
+            // remove the cards/make them invisible
+            setTimeout(() => {
+              firstCard.classList.add("matched");
+              secondCard.classList.add("matched");
+              lastTwoFlippedArray = [];
+            }, 2000);
+          
+            // actualMatchedPairs = 5
+            //actualMatchedPairs = actualMatchedPairs + 1
+            actualMatchedPairs += 1;
+            if (actualMatchedPairs === expectdMatchedPairs){
+              //show winning screen
+              const modal = document.getElementById("modal");
+              const playAgain = document.getElementById("play-again");
+              
+              toWinGame();
+              function showWinScreen() {
+                  const modalClose = document.querySelector(".close");
+                  modal.style.display = "flex";
+                  
+                  modalClose.onclick = function () { 
+                      modal.style.display = "none";
+                  };
+                  
+                  window.onclick = function(event) {
+                      if (event.target == modal) {
+                          modal.style.display = "none";
+                      }
+                  };
+              }
+              
+              function toWinGame() {
+                      showWinScreen()
+                      //stop timer
+                  }
+              if(unlock === 0){
+                  playAgain.addEventListener('click', function() {
+                  modal.style.display = "none";
+                  actualMatchedPairs = 0;
+                  lastTwoFlippedArray = [];
+                  clearBoard();
+                  shuffle();
+                  clearInterval(timer);
+                  timeElapsedHour = 0;
+                  timeElapsedMin = 0;
+                  timeElapsedsecond = 0;
+                  document.getElementById("timer").innerText = `${timeElapsedHour}:${timeElapsedMin}:${timeElapsedsecond}`;
+                  unlock ++; 
+                  start --;
+              });
+            }
+            
+            }
+        } else if (comparisonResult === false) {
+            //the cards values are not the same
+            // hide both cards again
+            setTimeout(() => {
+              firstCard.setAttribute("show-number", "false");
+              secondCard.setAttribute("show-number", "false");
+              lastTwoFlippedArray = [];
+              while(document.querySelectorAll(".flipped").length > 0){
+                document.querySelector(".flipped").classList.remove("flipped");
+            }
+            }, 2000);
+          }
+        }
+      }
     }
-  }
-
-  if (actualMatchedPairs === expectdMatchedPairs){
-    //show winning screen
   }
 }
